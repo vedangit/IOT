@@ -6,6 +6,7 @@ void setup() {
     // Call the setup functions for the sensors
     setupTemperatureSensor();
     setupRFID();
+    setupServo();
 }
 
 void loop() {
