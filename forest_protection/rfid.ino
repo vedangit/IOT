@@ -1,6 +1,7 @@
 #include <SPI.h>
 #include <MFRC522.h>
 #include "rfid.h"
+#include "servo.h" 
 
 // Create an instance of the MFRC522 class
 MFRC522 rfid(SS_PIN, RST_PIN);
@@ -35,6 +36,9 @@ void readCardUID() {
     // Check if the UID matches the authorized tag
     if (memcmp(rfid.uid.uidByte, AUTHORIZED_UID, rfid.uid.size) == 0) {
         Serial.println("Authorized tag detected.");
+        unlockServo();
+        delay(5000);
+        lockServo();
     } else {
         Serial.println("Unauthorized tag detected.");
     }
