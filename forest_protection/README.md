@@ -14,10 +14,9 @@ An IoT-based forest monitoring system that detects forest fires, monitors enviro
 2. **DHT22 Temperature & Humidity Sensor**
 3. **RFID RC522 Module**
 4. **Servo Motor** 
-5. **Tilt Sensor** 
-6. **Flex Sensor** 
-7. **ESP8266** 
-8. **SIM800L** 
+5. **Flex Sensor** 
+6. **ESP8266** 
+7. **SIM800L** 
 
 ## 🚀 Getting Started
 
