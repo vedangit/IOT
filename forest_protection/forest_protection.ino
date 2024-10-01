@@ -1,12 +1,15 @@
 #include <Arduino.h>
 #include "tempsensor.h"
 #include "rfid.h"
+#include "servo.h"
+#include "flex.h"
 
 void setup() {
     // Call the setup functions for the sensors
     setupTemperatureSensor();
     setupRFID();
     setupServo();
+    setupFlexSensor();
 }
 
 void loop() {
@@ -25,4 +28,17 @@ void loop() {
     readCardUID();
 
     delay(1000); // Delay to prevent spamming the output
+
+    int flexValue = readFlexSensor();
+    Serial.print("Flex Sensor Value: ");
+    Serial.println(flexValue);
+
+    // Set a threshold for tree cutting detection
+    int threshold = 300; // Adjust this value based on your testing
+    if (isTreeCutDetected(flexValue, threshold)) {
+        Serial.println("Tree cutting detected!");
+        // Implement actions if needed
+    }
+
+    delay(1000); // Delay for readability
 }
